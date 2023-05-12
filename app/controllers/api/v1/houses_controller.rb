@@ -5,8 +5,8 @@ class Api::V1::HousesController < ApplicationController
   end
 
   def show
-     house = House.find(params[:id])
-     render json: house
+    house = House.find(params[:id])
+    render json: house
   end
 
   def create
@@ -19,7 +19,7 @@ class Api::V1::HousesController < ApplicationController
     if house
       render json: {
         status: 200,
-        house: house.to_json(only %i[name city image description])
+        house: house.to_json(only(%i[name city image description]))
       }
     else
       render json: {
