@@ -14,6 +14,7 @@ class Api::V1::HousesController < ApplicationController
       name: params[:houseName],
       city: params[:houseCity],
       image: params[:houseImage],
+      appartment_fee: params[:appatmentFee],
       description: params[:houseDesc]
     )
     if house
