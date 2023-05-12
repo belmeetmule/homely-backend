@@ -10,23 +10,19 @@ class Api::V1::HousesController < ApplicationController
   end
 
   def create
-    house = House.create(
-      name: params[:houseName],
-      city: params[:houseCity],
-      image: params[:houseImage],
-      appartment_fee: params[:appatmentFee],
-      description: params[:houseDesc]
-    )
-    if house
-      render json: {
-        status: 200,
-        house: house.to_json(only(%i[name city image description]))
-      }
+    house = House.new(house_params)
+
+    if house.save
+      render json: house, status: :created
     else
-      render json: {
-        error: house.errors.full_message
-      }
+      render json: house.errors, status: :unproccessable_entity
     end
+  end
+
+  private
+
+  def house_params
+    params.require(:house).permit(:name, :city, :image, :appartment_fee, :description)
   end
 
   def destroy
