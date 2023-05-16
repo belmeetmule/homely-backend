@@ -6,6 +6,11 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+
+user_one = User.create({full_name: 'oshie', email: 'oshie@mail.com', password: '123456'});
+
+
+
 puts "Creating Houses"
 houses = House.create(
     {
@@ -42,3 +47,4 @@ houses = House.create({
     });
 
 puts "Houses Created"
+reservation_one = Reservation.create({reservation_date:"10/10/2023", user_id:user_one.id, house_id:houses[0].id})
