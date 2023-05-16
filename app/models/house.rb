@@ -1,3 +1,4 @@
 class House < ApplicationRecord
-  has_many :users
+  has_many :reservations, dependent: :destroy
+  has_many :users, through: :reservations
 end
