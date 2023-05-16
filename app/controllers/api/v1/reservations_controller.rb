@@ -1,12 +1,11 @@
 class Api::V1::ReservationsController < ApplicationController
-  #before_action :authenticate_user!
+  # before_action :authenticate_user!
   def index
     reservations = Reservation.where(user_id: params[:user_id]).includes(:house).order('reservation_date DESC')
     render json: reservations, status: 200
   end
 
   def create
-    #@reservation = Reservation.new(reservation_date: params[:reservation_date], user_id: params[:user_id], house_id: params[:house_id])
     @reservation = Reservation.new(reservation_params)
     if @reservation.save!
       render json: @reservation.to_json, status: 200
