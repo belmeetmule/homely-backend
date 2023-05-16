@@ -44,7 +44,7 @@ RSpec.describe 'POST /login', type: :request do
       end
 
       it 'returns validation errors' do
-        expect(response.body).to  include("Sorry, user couldn't be created. Full name has already been taken and Email has already been taken")
+        expect(response.body).to include("Sorry, user couldn't be created. Full name has already been taken and Email has already been taken")
       end
     end
   end
