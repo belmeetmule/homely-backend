@@ -14,14 +14,17 @@ RSpec.describe 'Houses', type: :model do
     subject.city = nil
     expect(subject).to_not be_valid
   end
+
   it 'image link should be present' do
     subject.image = nil
     expect(subject).to_not be_valid
   end
+
   it 'appartment fee should be present' do
     subject.appartment_fee = nil
     expect(subject).to_not be_valid
   end
+
   it 'description should be present' do
     subject.description = nil
     expect(subject).to_not be_valid
@@ -31,6 +34,7 @@ RSpec.describe 'Houses', type: :model do
     subject.name = 'a'
     expect(subject).to_not be_valid
   end
+
   it 'name should not be too long' do
     subject.name = 'a' * 30
     expect(subject).to_not be_valid
@@ -40,16 +44,17 @@ RSpec.describe 'Houses', type: :model do
     subject.city = 'a'
     expect(subject).to_not be_valid
   end
+
   it 'city name should not be too long' do
     subject.city = 'a' * 25
     expect(subject).to_not be_valid
   end
 
-
   it 'description should not be too short' do
     subject.description = 'a'
     expect(subject).to_not be_valid
   end
+
   it 'description should not be too long' do
     subject.city = 'a' * 300
     expect(subject).to_not be_valid
