@@ -47,4 +47,3 @@ houses = House.create({
     });
 
 puts "Houses Created"
-reservation_one = Reservation.create({reservation_date:"10/10/2023", user_id:user_one.id, house_id:houses[0].id})
