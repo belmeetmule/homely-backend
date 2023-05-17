@@ -1,0 +1,85 @@
+---
+openapi: 3.0.1
+info:
+  title: Homely API V1
+  version: v1
+paths:
+  "/signup":
+    post:
+      summary: Sign up
+      tags:
+      - Signup
+      parameters: []
+      responses:
+        '200':
+          description: Signed up sucessfully.
+        '422':
+          description: Sorry, user couldn't be created.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: object
+                  properties:
+                    full_name:
+                      type: string
+                    email:
+                      type: string
+                    password:
+                      type: string
+              required:
+              - full_name
+              - email
+              - password
+  "/login":
+    post:
+      summary: Authenticate user
+      tags:
+      - Login
+      parameters: []
+      responses:
+        '200':
+          description: Logged in sucessfully.
+        '401':
+          description: Couldn't find an active session.
+      requestBody:
+        content:
+          applicaiton/json:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: object
+                  properties:
+                    email:
+                      type: string
+                    password:
+                      type: string
+              required:
+              - email
+              - password
+  "/logout":
+    delete:
+      summary: Logout
+      tags:
+      - Logout
+      parameters:
+      - name: Authorization
+        in: header
+        description: JWT Token returned in Response Headers for login or register
+          requests
+        schema:
+          type: string
+      responses:
+        '200':
+          description: logged out successfully
+        '401':
+          description: Couldn't find an active session.
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com
