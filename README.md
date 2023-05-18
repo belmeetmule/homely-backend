@@ -103,10 +103,13 @@ Clone this repository to your desired folder:
 Install this project with:
 
 ```sh
-  cd Recipe-App
+  cd homely-backend
   bundle install
   rails db:create
   rails db:migrate
+  1. Remove config/master.key and config/credentials.yml.enc if they exist.
+  2. Run in the terminal: EDITOR=code rails credentials:edit , then close the editor that opens.
+  3. This command will create a new master.key and credentials.yml.enc if they do not exist.
 ```
 
 ### Usage
