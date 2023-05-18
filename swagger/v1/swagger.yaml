@@ -4,6 +4,78 @@ info:
   title: Homely API V1
   version: v1
 paths:
+  "/api/v1/users/{user_id}/reservations":
+    get:
+      summary: Get user house reservations
+      tags:
+      - List reservations
+      parameters:
+      - name: user_id
+        in: path
+        description: user_id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: succesfful
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    reservation_date:
+                      type: date
+                    user_id:
+                      type: integer
+                    house_id:
+                      type: integer
+                    required:
+                    - id
+                    - user_id
+                    - house_id
+                    - reservation_date
+        '401':
+          description: You must Login or Register. Reservation not found
+    post:
+      summary: Book a visit
+      tags:
+      - Create Visit Reservation
+      parameters:
+      - name: user_id
+        in: path
+        description: Current User ID
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Reservation created successfully
+        '401':
+          description: You need to Sign in before continuing
+        '404':
+          description: Reservation couldn't be created!
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reservation_date:
+                  type: date
+                user_id:
+                  type: integer
+                house_id:
+                  type: integer
+              required:
+              - reservation_date
+              - user_id
+              - house_id
+              - car_id
   "/signup":
     post:
       summary: Sign up
@@ -82,4 +154,4 @@ servers:
 - url: https://{defaultHost}
   variables:
     defaultHost:
-      default: www.example.com
+      default: localhost:4000
