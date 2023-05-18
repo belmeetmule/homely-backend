@@ -37,7 +37,7 @@
 
 # 📖 [Homely] <a name="about-project"></a>
 
-**Homely** is an implemention of a connection between Ruby on Rails back-end and React front-end. [Homely-backend](https://github.com/belmeetmule/homely-backend) handles the backend API, and [Hello React Frontend](https://github.com/Wahaj-Ali/homely-frontend) handles the frontend UI to display a random greeting message.
+**Homely** is a web app build using Ruby on Rails back-end and React front-end. [Homely-backend](https://github.com/belmeetmule/homely-backend) provides the backend APIs, and [Hello React Frontend](https://github.com/Wahaj-Ali/homely-frontend) consumes the APIs. The app allows user to see and book houses for onsite visits.
 
 ## Kanban Board 
 
@@ -78,10 +78,10 @@ We are a team of 4 members.
 
 ### Key Features <a name="key-features"></a>
 
-- **[It will allow to save ingredients]**
-- **[Create recipes]**
-- **[Generate a shopping list]**
-- **[Sharing recipes]**
+- **[Allows users to add houses]**
+- **[Allows users to book/reserve visits to houses they like]**
+- **[Delete houses]**
+- **[See reservations]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -174,9 +174,9 @@ To run tests, run the following command:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **[Auth]**
-- [ ] **[Pagination]**
-- [ ] **[Search_Posts]**
+- [ ] **Add admin role so that the admin see the booking in a given date and/or date range**
+- [ ] **Use pagination in stead of sending all houses in sindle get request**
+- [ ] **Search for houses**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -202,7 +202,7 @@ If you like this project, you can give star this repo.
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank microverse for supporting to do this project.
+We would like to thank microverse for supporting to do this project.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
