@@ -5,7 +5,7 @@
  
   <br/>
 
-  <h1><b>Final Group Capstone Project</b></h1>
+  <h1><b>Homely</b></h1>
 
 </div>
 
@@ -13,28 +13,29 @@
 
 # 📗 Table of Contents
 
-- [📖 About the Project](#about-project)
-  - [🛠 Built With](#built-with)
-    - [Tech Stack](#tech-stack)
-    - [Key Features](#key-features)
-- [💻 Getting Started](#getting-started)
-  - [Setup](#setup)
-  - [Prerequisites](#prerequisites)
-  - [Install](#install)
-  - [Usage](#usage)
-  - [Run tests](#run-tests)
-- [👥 Authors](#authors)
-- [🔭 Future Features](#future-features)
-- [🤝 Contributing](#contributing)
-- [⭐️ Show your support](#support)
-- [🙏 Acknowledgements](#acknowledgements)
-- [📝 License](#license)
+- [� Table of Contents](#-table-of-contents)
+- [📖 \[Homely\] ](#-homely-)
+  - [🛠 Built With ](#-built-with-)
+    - [Tech Stack ](#tech-stack-)
+    - [Key Features ](#key-features-)
+  - [💻 Getting Started ](#-getting-started-)
+    - [Prerequisites](#prerequisites)
+    - [Setup](#setup)
+    - [Install](#install)
+    - [Usage](#usage)
+    - [Run tests](#run-tests)
+  - [👥 Authors ](#-authors-)
+  - [🔭 Future Features ](#-future-features-)
+  - [🤝 Contributing ](#-contributing-)
+  - [⭐️ Show your support ](#️-show-your-support-)
+  - [🙏 Acknowledgments ](#-acknowledgments-)
+  - [📝 License ](#-license-)
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [Final Group Capstone Project] <a name="about-project"></a>
+# 📖 [Homely] <a name="about-project"></a>
 
-**[Final Group Capstone Project]** is a blog web application. User can create accounts, posts and users can add likes and comments for those posts. Built with ruby on rails.
+**Homely** is an implemention of a connection between Ruby on Rails back-end and React front-end. [Homely-backend](https://github.com/belmeetmule/homely-backend) handles the backend API, and [Hello React Frontend](https://github.com/Wahaj-Ali/homely-frontend) handles the frontend UI to display a random greeting message.
 
 ## 🛠 Built With <a name="built-with"></a>
 
