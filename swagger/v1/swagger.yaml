@@ -4,6 +4,81 @@ info:
   title: Homely API V1
   version: v1
 paths:
+  "/api/v1/houses":
+    get:
+      summary: list houses
+      tags:
+      - list all of the houses
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+                    city:
+                      type: string
+                    image:
+                      type: string
+                    appartment_fee:
+                      type: float
+                    description:
+                      type: string
+                  required:
+                  - id
+                  - name
+                  - city
+                  - image
+                  - appartment_fee
+                  - description
+  "/api/v1/houses/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show house
+      tags:
+      - get single house detail
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  city:
+                    type: string
+                  image:
+                    type: string
+                  appartment_fee:
+                    type: integer
+                  description:
+                    type: string
+                required:
+                - id
+                - name
+                - city
+                - image
+                - appartment_fee
+                - description
+        '404':
+          description: invalid url
   "/api/v1/users/{user_id}/reservations":
     get:
       summary: Get user house reservations
