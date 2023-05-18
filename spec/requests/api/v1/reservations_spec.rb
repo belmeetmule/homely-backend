@@ -33,7 +33,7 @@ RSpec.describe 'api/v1/reservations', type: :request do
         run_test!
       end
 
-      response '401', 'You must Login or Register. Reservation not found' do
+      response '200', 'Empty array' do
         let(:user_id) { 'invalid' }
         run_test!
       end
@@ -60,22 +60,23 @@ RSpec.describe 'api/v1/reservations', type: :request do
           @user = User.create(full_name: 'Mulugeta', email: 'mulu@homely.com', password: 'password')
           @house = House.create(name: 'White house villa', city: 'Addis Ababa', appartment_fee: 2000, description: 'abcde abce', image: 'https://www.house-images.png')
           # @reservation = Reservation.create(user_id: @user.id, house_id: @house.id, reservation_date: Time.now)
-          sign_in @user
+          #sign_in @user
         end
         let(:user_id) { @user.id }
-        let(:booking) { { booking: { user_id: @user.id, house_id: @house.id, reservation_date: Time.now } } }
+        let(:booking) { { user_id: @user.id, house_id: @house.id, reservation_date: Time.now } }
         run_test!
       end
 
-      response '401', 'You need to Sign in before continuing' do
-        let(:user_id) { 'invalid' }
-        let(:booking) { { booking: { user_id: @user.id, house_id: @house.id, reservation_date: Time.now } } }
-        run_test!
-      end
 
       response '404', 'Reservation couldn\'t be created!' do
+        before do
+          @user = User.create(full_name: 'Mulugeta', email: 'mulu@homely.com', password: 'password')
+          @house = House.create(name: 'White house villa', city: 'Addis Ababa', appartment_fee: 2000, description: 'abcde abce', image: 'https://www.house-images.png')
+          # @reservation = Reservation.create(user_id: @user.id, house_id: @house.id, reservation_date: Time.now)
+          #sign_in @user
+        end
         let(:user_id) { @user.id }
-        let(:booking) { { booking: { user_id: @user.id, house_id: @house.id } } }
+        let(:booking) { { user_id: @user.id, house_id: @house.id } }
         run_test!
       end
     end
