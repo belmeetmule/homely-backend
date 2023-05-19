@@ -3,7 +3,7 @@ require 'swagger_helper'
 RSpec.describe 'users', type: :request do
   path '/signup' do
     post 'Sign up' do
-      tags 'Signup'
+      tags 'Register new user'
       consumes 'application/json'
       parameter name: :user, in: :body, schema: {
         type: :object,
@@ -19,72 +19,66 @@ RSpec.describe 'users', type: :request do
       }
 
       response '200', 'Signed up sucessfully.' do
-        before do
-          let(:user) { { user: { full_name: 'Mulugeta M', email: 'mulu@gmail.com', password: 'password' } } }
-        end
+        let(:user) { { user: { full_name: 'Mulugeta B', email: 'mulub@gmail.com', password: 'password' } } }
         run_test!
       end
 
       response '422', "Sorry, user couldn't be created." do
-        let(:usre) { 'invalid params' }
+        let(:user) { 'invalid params' }
         run_test!
       end
     end
   end
 
   path '/login' do
-    post 'Authenticate user' do
+    post 'Sign in User' do
       tags 'Login'
-      consumes 'applicaiton/json'
+      consumes 'application/json'
       parameter name: :user, in: :body, schema: {
         type: :object,
         properties: {
-          user: { type: :object,
-                  properties: {
-                    email: { type: :string },
-                    password: { type: :string }
-                  } }
+          email: { type: :string },
+          password: { type: :string }
         },
         required: %w[email password]
       }
 
-      response '200', 'Logged in sucessfully.' do
+      response '200', 'User logged in successfully' do
         before do
-          User.create(full_name: 'Mulugeta M', email: 'mulu@gmail.com', password: 'password')
+          User.create(full_name: 'Martha K', email: 'marty@homely.com', password: 'password')
         end
-
-        let(:user) { { user: { email: 'mulu@gmail.com', password: 'password' } } }
+        let(:user) { { user: { email: 'marty@homely.com', password: 'password' } } }
         run_test!
       end
 
-      response '401', 'Couldn\'t find an active session.' do
-        let(:user) { 'invalid credentails' }
+      response '401', 'Logged in failure' do
+        let(:user) { 'invalid' }
         run_test!
       end
     end
   end
 
   path '/logout' do
-    delete 'Logout' do
+    delete 'Sign out User' do
       tags 'Logout'
-      consumes 'applicaiton/json'
+      consumes 'application/json'
       parameter name: :Authorization, in: :header, type: :string,
-                description: 'JWT Token returned in Response Headers for login or register requests'
-
-      response '200', 'logged out successfully' do
+                description: 'Authorization JWT Token (Check Response Headers in login or register)'
+      response '200', 'Logged out successfull' do
         before do
-          user = User.create(full_name: 'Mulugeta', email: 'mulu@homely.com', password: 'password')
-          # simulate valid session
-          post '/login', params: { user: { email: user.email, password: user.password } },
-                         headers: { 'Accept' => 'application/json' }
-          # get token from response
-          token = response.headers['Authorization']
+          @user = User.create(full_name: 'Martha M', email: 'martha@homely.com', password: 'password')
+          def encode(payload, exp = 30.minutes.from_now)
+            payload[:exp] = exp.to_i
+            "Bearer #{JWT.encode(payload, Rails.application.credentials.fetch(:secret_key_base))}"
+          end
+          @token = encode({ sub: @user.id, jti: @user.jti, scp: 'user' })
         end
-        let(:Authorization) { token }
+
+        let(:Authorization) { @token }
         run_test!
       end
 
-      response '401', 'Couldn\'t find an active session.' do
+      response '401', 'Authorization token is invalid' do
         let(:Authorization) { '' }
         run_test!
       end
