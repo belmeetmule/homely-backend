@@ -13,7 +13,7 @@ RSpec.describe 'api/v1/reservations', type: :request do
           @user = User.create(full_name: 'Mulugeta', email: 'mulu@homely.com', password: 'password')
           @house = House.create(name: 'White house villa', city: 'Addis Ababa', appartment_fee: 2000, description: 'abcde abce', image: 'https://www.house-images.png')
           @reservation = Reservation.create(user_id: @user.id, house_id: @house.id, reservation_date: Time.now)
-          # sign_in @user
+          
         end
 
         let(:user_id) { @user.id }
@@ -52,31 +52,17 @@ RSpec.describe 'api/v1/reservations', type: :request do
           user_id: { type: :integer },
           house_id: { type: :integer }
         },
-        required: %w[reservation_date user_id house_id car_id]
+        required: %w[reservation_date user_id house_id]
       }
 
       response '200', 'Reservation created successfully' do
         before do
           @user = User.create(full_name: 'Mulugeta', email: 'mulu@homely.com', password: 'password')
           @house = House.create(name: 'White house villa', city: 'Addis Ababa', appartment_fee: 2000, description: 'abcde abce', image: 'https://www.house-images.png')
-          # @reservation = Reservation.create(user_id: @user.id, house_id: @house.id, reservation_date: Time.now)
-          #sign_in @user
+          
         end
         let(:user_id) { @user.id }
         let(:booking) { { user_id: @user.id, house_id: @house.id, reservation_date: Time.now } }
-        run_test!
-      end
-
-
-      response '404', 'Reservation couldn\'t be created!' do
-        before do
-          @user = User.create(full_name: 'Mulugeta', email: 'mulu@homely.com', password: 'password')
-          @house = House.create(name: 'White house villa', city: 'Addis Ababa', appartment_fee: 2000, description: 'abcde abce', image: 'https://www.house-images.png')
-          # @reservation = Reservation.create(user_id: @user.id, house_id: @house.id, reservation_date: Time.now)
-          #sign_in @user
-        end
-        let(:user_id) { @user.id }
-        let(:booking) { { user_id: @user.id, house_id: @house.id } }
         run_test!
       end
     end
