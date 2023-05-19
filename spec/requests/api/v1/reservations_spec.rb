@@ -13,7 +13,6 @@ RSpec.describe 'api/v1/reservations', type: :request do
           @user = User.create(full_name: 'Mulugeta', email: 'mulu@homely.com', password: 'password')
           @house = House.create(name: 'White house villa', city: 'Addis Ababa', appartment_fee: 2000, description: 'abcde abce', image: 'https://www.house-images.png')
           @reservation = Reservation.create(user_id: @user.id, house_id: @house.id, reservation_date: Time.now)
-          
         end
 
         let(:user_id) { @user.id }
@@ -59,7 +58,6 @@ RSpec.describe 'api/v1/reservations', type: :request do
         before do
           @user = User.create(full_name: 'Mulugeta', email: 'mulu@homely.com', password: 'password')
           @house = House.create(name: 'White house villa', city: 'Addis Ababa', appartment_fee: 2000, description: 'abcde abce', image: 'https://www.house-images.png')
-          
         end
         let(:user_id) { @user.id }
         let(:booking) { { user_id: @user.id, house_id: @house.id, reservation_date: Time.now } }
