@@ -51,5 +51,5 @@ end
 gem 'devise'
 gem 'devise-jwt'
 gem 'jsonapi-serializer'
-gem 'rubocop', '>= 1.0', '< 2.0'
 gem 'rswag'
+gem 'rubocop', '>= 1.0', '< 2.0'

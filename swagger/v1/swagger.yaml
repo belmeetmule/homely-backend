@@ -1,0 +1,157 @@
+---
+openapi: 3.0.1
+info:
+  title: Homely API V1
+  version: v1
+paths:
+  "/api/v1/users/{user_id}/reservations":
+    get:
+      summary: Get user house reservations
+      tags:
+      - List reservations
+      parameters:
+      - name: user_id
+        in: path
+        description: user_id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: succesfful
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    reservation_date:
+                      type: date
+                    user_id:
+                      type: integer
+                    house_id:
+                      type: integer
+                    required:
+                    - id
+                    - user_id
+                    - house_id
+                    - reservation_date
+        '401':
+          description: You must Login or Register. Reservation not found
+    post:
+      summary: Book a visit
+      tags:
+      - Create Visit Reservation
+      parameters:
+      - name: user_id
+        in: path
+        description: Current User ID
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Reservation created successfully
+        '401':
+          description: You need to Sign in before continuing
+        '404':
+          description: Reservation couldn't be created!
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reservation_date:
+                  type: date
+                user_id:
+                  type: integer
+                house_id:
+                  type: integer
+              required:
+              - reservation_date
+              - user_id
+              - house_id
+              - car_id
+  "/signup":
+    post:
+      summary: Sign up
+      tags:
+      - Signup
+      parameters: []
+      responses:
+        '200':
+          description: Signed up sucessfully.
+        '422':
+          description: Sorry, user couldn't be created.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: object
+                  properties:
+                    full_name:
+                      type: string
+                    email:
+                      type: string
+                    password:
+                      type: string
+              required:
+              - full_name
+              - email
+              - password
+  "/login":
+    post:
+      summary: Authenticate user
+      tags:
+      - Login
+      parameters: []
+      responses:
+        '200':
+          description: Logged in sucessfully.
+        '401':
+          description: Couldn't find an active session.
+      requestBody:
+        content:
+          applicaiton/json:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: object
+                  properties:
+                    email:
+                      type: string
+                    password:
+                      type: string
+              required:
+              - email
+              - password
+  "/logout":
+    delete:
+      summary: Logout
+      tags:
+      - Logout
+      parameters:
+      - name: Authorization
+        in: header
+        description: JWT Token returned in Response Headers for login or register
+          requests
+        schema:
+          type: string
+      responses:
+        '200':
+          description: logged out successfully
+        '401':
+          description: Couldn't find an active session.
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: localhost:4000
