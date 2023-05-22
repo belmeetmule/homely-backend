@@ -24,8 +24,6 @@ default: &default
 development:
   <<: *default
   database: homely_backend_development
-  username: homely
-  password: password1
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -60,8 +58,6 @@ development:
 test:
   <<: *default
   database: homely_backend_test
-  username: homely
-  password: password1
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -85,6 +81,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV["DATABASE_URL"] %>
   database: homely_backend_production
   username: homely_backend
   password: <%= ENV["HOMELY_BACKEND_DATABASE_PASSWORD"] %>
