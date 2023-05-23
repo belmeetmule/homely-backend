@@ -17,6 +17,7 @@
 - [📖 \[Homely\] ](#-homely-)
   - [Kanban Board](#kanban-board)
     - [Screenshot of of the initial state of the Kanban board](#screenshot-of-of-the-initial-state-of-the-kanban-board)
+  - [🚀 Live Demo](#🚀-live-demo)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
@@ -37,7 +38,7 @@
 
 # 📖 [Homely] <a name="about-project"></a>
 
-**Homely** is a web app build using Ruby on Rails back-end and React front-end. [Homely-backend](https://github.com/belmeetmule/homely-backend) provides the backend APIs, and [Hello React Frontend](https://github.com/Wahaj-Ali/homely-frontend) consumes the APIs. The app allows user to see and book houses for onsite visits.
+**Homely** is a web app built using Ruby on Rails back-end and React front-end. [Homely-backend](https://github.com/belmeetmule/homely-backend) provides the backend APIs, and [Hello React Frontend](https://github.com/Wahaj-Ali/homely-frontend) consumes the APIs. The app allows user to see and book houses for onsite visits.
 
 ## Kanban Board 
 
@@ -87,15 +88,14 @@ We are a team of 4 members.
 
 <!-- LIVE DEMO -->
 
-<!-- ## 🚀 Live Demo <a name="live-demo"></a>
 
-> Add a link to your deployed project.
+ ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://google.com)
+- [API documentation](https://homely-backend.onrender.com/api-docs/index.html)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
+<p align="right">(<a href="#readme-top">back to top</a>)</p> 
 
-<!-- GETTING STARTED -->
+<!-- GETTING STARTED  -->
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
@@ -154,19 +154,26 @@ To run tests, run the following command:
 
 ## 👥 Authors <a name="authors" />
 
-👤 **Akhror Valiev**
-👤 **Mulugeta Belete**
-👤 **Wahaj Ali**
-👤 **Chukuwuma Mosanya**
 
+👤 **Akhror Valiev**
 - GitHub: [GitHub Profile](https://github.com/akhror-valiev)
 - LinkedIn: [LinkedIn Profile](https://www.linkedin.com/in/oshie/)
 - GitHub: [GitHub Profile](https://github.com/akhror-valiev)
-- LinkedIn: [LinkedIn Profile](https://www.linkedin.com/in/oshie/)
-- GitHub: [GitHub Profile](https://github.com/akhror-valiev)
-- LinkedIn: [LinkedIn Profile](https://www.linkedin.com/in/oshie/)
-- GitHub: [GitHub Profile](https://github.com/akhror-valiev)
-- LinkedIn: [LinkedIn Profile](https://www.linkedin.com/in/oshie/)
+
+👤 **Chukuwuma Mosanya**
+- [GitHub](https://github.com/blase147)
+- [Twitter](https://twitter.com/ChukwumaMosanya)
+- [LinkedIn](https://www.linkedin.com/in/chukwuma-mosanya)
+
+👤 **Mulugeta M.**
+- GitHub: [@belmeetmule](https://github.com/belmeetmule)
+- Twitter: [@belmeetmule](https://twitter.com/belmeetmule)
+- LinkedIn: [belmeetmule](https://linkedin.com/in/belmeetmule)
+
+👤 **Wahaj Ali**
+- [GitHub](https://github.com/Wahaj-Ali)
+- [Twitter](https://twitter.com/Ali96Wahaj)
+- [LinkedIn](https://www.linkedin.com/in/wahaj-ali96)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
