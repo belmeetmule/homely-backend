@@ -151,7 +151,7 @@ paths:
         '401':
           description: Couldn't find an active session.
 servers:
-- url: https://{defaultHost}
+- url: https://homely-backend.onrender.com
   variables:
     defaultHost:
-      default: localhost:4000
+      default: https://homely-backend.onrender.com/api-docs
